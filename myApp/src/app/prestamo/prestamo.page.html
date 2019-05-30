@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar color="color1">
+      <ion-buttons>
+          <ion-back-button defaultHref="/" ></ion-back-button>
+      </ion-buttons> 
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <h2>Prestamo</h2>
+  <form #formulario="ngForm">
+    <ion-list-header>
+        <ion-label>Completo los campos: {{ formulario.valid }}</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label position="floating">NIT</ion-label>
+      <ion-input type="number"  [(ngModel)]="nit" name="nit" minlength="9" maxlength="10" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nombre Empresa</ion-label>
+      <ion-input type="text"  [(ngModel)]="nombreEmpresa" name="nombreEmpresa" minlength="3" maxlength="30" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Salario</ion-label>
+      <ion-input type="number"  [(ngModel)]="salario" name="salario" minlength="9"  required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Fecha Incorporacion Laboral</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="fechaLaboral"  name="fechaLaboral" required></ion-datetime>
+    </ion-item>
+    <br>
+    <br>
+    <br>
+    <ion-button  expand="block" type="submit" color="primary"  
+                (click)="validarCredito()" 
+                [disabled]="formulario.invalid"
+                >Validar Credito</ion-button>
+</form> 
+</ion-content>

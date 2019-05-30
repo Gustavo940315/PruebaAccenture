@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="color1">
+    <ion-buttons>
+        <ion-back-button defaultHref="/" ></ion-back-button>
+    </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Registro</h2>
+  <form #formulario="ngForm">
+      <ion-list-header>
+          <ion-label>Completo los campos: {{ formulario.valid }}</ion-label>
+      </ion-list-header>
+    <ion-item>
+      <ion-label position="floating">Nombres</ion-label>
+      <ion-input type="text"  [(ngModel)]="firstname" name="firstname" minlength="2" maxlength="50" required></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Apellidos</ion-label>
+        <ion-input type="text"  [(ngModel)]="lastname" name="lastname" minlength="2" maxlength="50" required></ion-input>
+    </ion-item>
+    <ion-item>
+          <ion-label position="floating">Fecha de Nacimiento</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="birthdate"  name="birthdate" required></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Numero de Identificacion</ion-label>
+        <ion-input type="number"  [(ngModel)]="identification" name="identification" 
+                  
+                  minlength="2" maxlength="30" required></ion-input>
+    </ion-item>
+    <br>
+    <br>
+    <br>
+    <ion-button  expand="block" type="submit" color="primary"  
+                 (click)="registrarUsuario()" 
+                 [disabled]="formulario.invalid"
+                 >Registrate</ion-button>
+  </form> 
+</ion-content>
+ 
